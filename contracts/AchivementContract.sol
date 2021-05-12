@@ -1,11 +1,12 @@
 //SPDX-License-Identifier: Unlicense
-pragma solidity ^0.7.0;
+pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "hardhat/console.sol";
 
-contract AchivementContract is ERC721, Ownable {
+contract AchivementContract is ERC721Enumerable, Ownable {
     struct Achivement {
         string title;
         string description;
@@ -101,6 +102,29 @@ contract AchivementContract is ERC721, Ownable {
         ach.price = newPrice;
         achivements[tokenId] = ach;
     }
+
+    // function getInfo(uint256 tokenId)
+    //     public
+    //     view
+    //     returns (
+    //         string memory name,
+    //         uint8 role,
+    //         uint8 _type,
+    //         uint256 org_id,
+    //         uint8 check_flag,
+    //         uint256 register_time
+    //     )
+    // {
+    //     Achivement storage ach = achivements[tokenId];
+    //     return (
+    //         ach.name,
+    //         ach.role,
+    //         ach._type,
+    //         ach.org_id,
+    //         ach.check_flag,
+    //         ach.register_time
+    //     );
+    // }
 
     function buy(uint256 tokenId) public payable {
         Achivement storage ach = achivements[tokenId];
