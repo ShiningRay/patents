@@ -1,4 +1,5 @@
-clone 之后 
+先安装 nodejs 和 yarn
+git@github.com:ShiningRay/patents.git之后 
 
 yarn 
 
@@ -7,5 +8,5 @@ yarn
   npx hardhat compile
   npx hardhat test
   npx hardhat node
-  node scripts/sample-script.js
+  node scripts/deploy.js
   npx hardhat help
